@@ -45,7 +45,41 @@ async def general_exception_handler(request: Request, exc: Exception):
         status_code=500
     )
 
-JOB_ROLES = ["Frontend Developer", "Backend Developer", "Data Scientist", "Android Developer", "DevOps Engineer", "Full Stack Developer"]
+JOB_ROLES = [
+    # Core & Traditional Development
+    "Frontend Developer", 
+    "Backend Developer", 
+    "Full Stack Developer",
+    "Android Developer",
+    "iOS Developer",
+    
+    # Data & Infrastructure
+    "Data Scientist", 
+    "DevOps Engineer",
+    "Cloud Architect",
+    "Database Administrator",
+    "Systems Administrator",
+    "Site Reliability Engineer (SRE)",
+    
+    # QA & Product
+    "QA Engineer",
+    "Product Manager",
+    "UI/UX Designer",
+    "Cybersecurity Analyst",
+    
+    # Recent & Emerging AI Roles
+    "Prompt Engineer",
+    "LLM Engineer (Large Language Model)",
+    "Machine Learning Engineer",
+    "MLOps Engineer",
+    "Generative AI Developer",
+    "AI Product Manager",
+    "AI Solutions Architect",
+    "Adversarial Prompt Engineer / AI Red Teamer",
+    "AI Ethics & Compliance Specialist",
+    "Data Annotation Specialist",
+    "AI Trainer"
+]
 POPULAR_SKILLS = ["HTML", "CSS", "JavaScript", "React", "Node.js", "Python", "SQL", "MongoDB", "Java", "Kotlin", "Docker", "AWS", "Git"]
 
 def fetch_resources(skill: str):

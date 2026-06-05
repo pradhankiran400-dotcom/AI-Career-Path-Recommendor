@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - AI Career Path Recommendor</title>
+    <link rel="stylesheet" href="/static/CSS/style.css">
+    <style>
+        .error-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top: 5px solid #F4B183;
+        }
+        .error-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        .error-title {
+            color: #F4B183;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        .error-msg {
+            color: #4b5563;
+            margin-bottom: 30px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .home-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #4F8135;
+            color: #FFF2CC;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .home-btn:hover {
+            background-color: #F4B183;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li class="nav-item">AI Career Path Recommendor</li>
+                <li><a href="/">🏠 Home</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="error-card">
+            <div class="error-icon">⚠️</div>
+            <h2 class="error-title">Oops! Something went wrong</h2>
+            <p class="error-msg">
+                {% if error_message %}
+                    {{ error_message }}
+                {% else %}
+                    An unexpected error occurred while processing your request. Please check your inputs or try again later.
+                {% endif %}
+            </p>
+            <a href="/" class="home-btn">Go back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

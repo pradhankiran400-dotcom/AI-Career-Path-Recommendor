@@ -1,0 +1,108 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #FFF2CC;
+    margin: 0; padding: 0; color: #1f2937;
+}
+
+.navbar {
+    background-color: #4F8135;
+    overflow: hidden;
+}
+
+.navbar nav {
+    width: 100%;
+}
+
+.nav-item {
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: #EEEEEE;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px 20px; 
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+.navbar ul li a {
+    color: #FFF2CC; 
+    text-decoration: none;
+    padding: 8px 10px;
+    display: block;
+    border-radius: 5px; 
+    font-weight: bolder;
+}
+
+#about {
+    margin-left: auto; 
+}
+
+.navbar ul li a:hover {
+    background-color: #F4B183;
+    color: #4F8135;
+    border-radius: 4px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+h1 { text-align: center; color: #4F8135; }
+.subtitle { text-align: center; color: #F4B183; margin-bottom: 25px; font-weight: 500;}
+
+.form-card {
+    background: #FFF2CC;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #4F8135;
+}
+
+.form-input, .form-input-file, .form-input-select {
+    padding: 10px;
+    border: 1px solid #4F8135;
+    border-radius: 4px;
+    font-size: 16px;
+    background: white;
+}
+
+.form-input-select { height: 120px; }
+.divider { border: 0; border-top: 1px solid #4F8135; margin: 20px 0; }
+.or-badge { text-align: center; font-weight: bold; color: #4F8135; margin: 10px 0; }
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: #4F8135;
+    color: #FFF2CC;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.submit-btn:hover {
+    background: #F4B183;
+}

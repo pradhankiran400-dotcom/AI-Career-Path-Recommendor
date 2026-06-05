@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personalized Career Roadmap</title>
+    <link rel="stylesheet" href="/static/CSS/style.css">
+    <style>
+        .skills-summary { display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap; }
+        .summary-box { flex: 1; min-width: 250px; background: #FFF2CC; padding: 15px; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .badge { display: inline-block; padding: 5px 10px; margin: 4px; border-radius: 4px; font-size: 14px; font-weight: bold; }
+        .badge.known { background: #A9D18E; color: #4F8135; }
+        .badge.missing { background: #F4B183; color: #4F8135; }
+        
+        .timeline { border-left: 4px solid #4F8135; padding-left: 20px; margin-top: 30px; }
+        .timeline-item { margin-bottom: 25px; position: relative; }
+        .step-number { position: absolute; left: -40px; background: #4F8135; color: #FFF2CC; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .step-content { background: #FFF2CC; padding: 15px; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .status-tag { float: right; font-size: 14px; padding: 2px 6px; border-radius: 4px; background: #4F8135; color: #FFF2CC; }
+        .back-btn { display: inline-block; margin-top: 20px; padding: 10px 15px; background: #4F8135; color: #FFF2CC; text-decoration: none; border-radius: 4px; font-weight: bold; }
+        .summary-box h3, .step-content h3 { color: #4F8135; }
+        .back-btn:hover { background: #F4B183; }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li class="nav-item">AI Career Path Recommendor</li>
+                <li><a href="/">🏠 Home</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container" style="max-width: 800px;">
+        <h1 style="text-align: left;">🎯 Your Custom Road to: {{ target_job }}</h1>
+        
+        <div class="skills-summary">
+            <div class="summary-box">
+                <h3 style="margin-top:0;">Your Current Skills:</h3>
+                {% for s in user_skills %}
+                    <span class="badge known">{{ s.upper() }}</span>
+                {% else %}
+                    <span style="color: #6b7280;">No skills specified yet.</span>
+                {% endfor %}
+            </div>
+            <div class="summary-box">
+                <h3 style="margin-top:0;">Skills You Need to Focus On:</h3>
+                {% for m in missing_skills %}
+                    <span class="badge missing">{{ m.upper() }}</span>
+                {% else %}
+                    <span class="badge known">All caught up! ✨</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="timeline">
+            {% for item in roadmap %}
+            <div class="timeline-item">
+                <div class="step-number">{{ item.get('step', loop.index) }}</div>
+                <div class="step-content">
+                    <span class="status-tag">{{ item.get('status', 'Pending') }}</span>
+                    <h3 style="margin: 0 0 8px 0;">{{ item.get('title', 'Step Details Missing') }}</h3>
+                    <p style="margin: 0; color: #4b5563;">{{ item.get('desc', 'Description not provided by AI.') }}</p>
+                    
+                    {% if item.get('resources') %}
+                    <div style="margin-top: 15px; padding: 12px; background: #E2F0D9; border-radius: 6px; border-left: 4px solid #4F8135;">
+                        <strong style="color: #4F8135; font-size: 14px;">📚 Recommended Free Tutorials:</strong>
+                        <ul style="margin: 8px 0 0 20px; padding: 0; font-size: 14px;">
+                            {% for res in item.resources %}
+                            <li style="margin-bottom: 5px;">
+                                <a href="{{ res.url }}" target="_blank" style="color: #4F8135; text-decoration: none; font-weight: 500; text-decoration: underline;">
+                                    {{ res.title }}
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <a href="/" class="back-btn">← Run Another Analysis</a>
+    </div>
+</body>
+</html>

@@ -52,6 +52,7 @@ JOB_ROLES = [
     "Full Stack Developer",
     "Android Developer",
     "iOS Developer",
+    "Software Engineer",
     
     # Data & Infrastructure
     "Data Scientist", 
